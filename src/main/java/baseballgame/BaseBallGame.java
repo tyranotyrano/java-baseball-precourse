@@ -60,6 +60,10 @@ public class BaseBallGame {
 		initCount();
 		countStrikes();
 		countBalls();
+
+		if (!validateStrikeAndBallCounts()) {
+			throw new IllegalStateException("스트라이크, 볼 판정에 오류가 발생했습니다. 로직을 확인해주세요.");
+		}
 	}
 
 	private void initCount() {
@@ -90,6 +94,16 @@ public class BaseBallGame {
 		if (!isStrike && problemNumbers.contains(answerNumber)) {
 			ballCount++;
 		}
+	}
+
+	boolean validateStrikeAndBallCounts() {
+		if ((strikeCount + ballCount) > 3 ||
+			(strikeCount == 2 && ballCount == 1) ||
+			(strikeCount == 3 && ballCount != 0)) {
+			return false;
+		}
+
+		return true;
 	}
 
 	public int getStrikeCount() {
