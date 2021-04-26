@@ -118,6 +118,16 @@ public class BaseBallGame {
 		System.out.println(strikeCount + ballCount == 0 ? "낫싱" : "");
 	}
 
+	public void confirmCorrectAnswer() {
+		if (isCorrectAnswer()) {
+			System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+		}
+	}
+
+	boolean isCorrectAnswer() {
+		return strikeCount == 3 && ballCount == 0;
+	}
+
 	public int getStrikeCount() {
 		return strikeCount;
 	}

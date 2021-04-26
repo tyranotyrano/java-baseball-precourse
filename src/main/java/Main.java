@@ -10,5 +10,7 @@ public class Main {
 		baseBallGame.countStrikesAndBalls();
 
 		baseBallGame.printCountResults();
+
+		baseBallGame.confirmCorrectAnswer();
 	}
 }
