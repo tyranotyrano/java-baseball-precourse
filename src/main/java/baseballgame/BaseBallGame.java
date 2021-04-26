@@ -5,6 +5,7 @@ import java.util.*;
 public class BaseBallGame {
 	private final int VALID_NUMBER_LENGTH = 3;
 	private String[] problemNumbers;
+	private String[] answerNumbers;
 
 	public void createProblemNumbers() {
 		Set<String> numberSet = createNumberSet();
@@ -42,5 +43,14 @@ public class BaseBallGame {
 		Set<String> set = new HashSet<>(Arrays.asList(stringNumbers));
 
 		return join.matches(NUMBER_FROM_1_to_9_REG_EXP) && set.size() == VALID_NUMBER_LENGTH;
+	}
+
+	public void receiveAnswerNumbers() {
+		Scanner scanner = new Scanner(System.in);
+
+		do {
+			System.out.print("숫자를 입력해주세요(1~9 중 서로 다른 3자리수) : ");
+			answerNumbers = scanner.next().split("");
+		} while (!validateStringNumbers(answerNumbers));
 	}
 }
