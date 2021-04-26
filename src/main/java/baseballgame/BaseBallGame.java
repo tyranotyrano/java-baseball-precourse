@@ -6,6 +6,7 @@ public class BaseBallGame {
 	private final int VALID_NUMBER_LENGTH = 3;
 	private String[] problemNumbers;
 	private String[] answerNumbers;
+	private int strikeCount = 0;
 
 	public void createProblemNumbers() {
 		Set<String> numberSet = createNumberSet();
@@ -52,5 +53,30 @@ public class BaseBallGame {
 			System.out.print("숫자를 입력해주세요(1~9 중 서로 다른 3자리수) : ");
 			answerNumbers = scanner.next().split("");
 		} while (!validateStringNumbers(answerNumbers));
+	}
+
+	public void countStrikesAndBalls() {
+		initCount();
+		countStrikes();
+	}
+
+	private void initCount() {
+		strikeCount = 0;
+	}
+
+	private void countStrikes() {
+		for (int i = 0; i < VALID_NUMBER_LENGTH; i++) {
+			increaseCountWhenStrike(problemNumbers[i], answerNumbers[i]);
+		}
+	}
+
+	void increaseCountWhenStrike(String problemNumber, String answerNumber) {
+		if (problemNumber.equals(answerNumber)) {
+			strikeCount++;
+		}
+	}
+
+	public int getStrikeCount() {
+		return strikeCount;
 	}
 }

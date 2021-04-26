@@ -6,5 +6,7 @@ public class Main {
 		baseBallGame.createProblemNumbers();
 
 		baseBallGame.receiveAnswerNumbers();
+
+		baseBallGame.countStrikesAndBalls();
 	}
 }
