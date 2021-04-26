@@ -73,4 +73,20 @@ public class BaseBallGameTest {
 
 		assertThat(baseBallGame.getBallCount()).isEqualTo(result);
 	}
+
+	@DisplayName("문제와 답이 맞는지 확인")
+	@ParameterizedTest
+	@CsvSource(value = {"234:false", "916:false", "169:false","691:false", "619:true"}, delimiter = ':')
+	void isCorrectAnswer(String stringNumber, boolean result) {
+		String[] problemNumbers = {"6", "1", "9"};
+		String[] answerNumbers = stringNumber.split("");
+
+		for (int i = 0; i < problemNumbers.length; i++) {
+			boolean isStrike = problemNumbers[i].equals(answerNumbers[i]);
+			baseBallGame.increaseCountWhenStrike(problemNumbers[i], answerNumbers[i]);
+			baseBallGame.increaseCountWhenBall(Arrays.asList(problemNumbers), answerNumbers[i], isStrike);
+		}
+
+		assertThat(baseBallGame.isCorrectAnswer()).isEqualTo(result);
+	}
 }
