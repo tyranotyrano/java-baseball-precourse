@@ -8,5 +8,7 @@ public class Main {
 		baseBallGame.receiveAnswerNumbers();
 
 		baseBallGame.countStrikesAndBalls();
+
+		baseBallGame.printCountResults();
 	}
 }
