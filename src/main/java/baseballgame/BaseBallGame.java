@@ -7,6 +7,7 @@ public class BaseBallGame {
 	private String[] problemNumbers;
 	private String[] answerNumbers;
 	private int strikeCount = 0;
+	private int ballCount = 0;
 
 	public void createProblemNumbers() {
 		Set<String> numberSet = createNumberSet();
@@ -58,10 +59,12 @@ public class BaseBallGame {
 	public void countStrikesAndBalls() {
 		initCount();
 		countStrikes();
+		countBalls();
 	}
 
 	private void initCount() {
 		strikeCount = 0;
+		ballCount = 0;
 	}
 
 	private void countStrikes() {
@@ -76,7 +79,24 @@ public class BaseBallGame {
 		}
 	}
 
+	private void countBalls() {
+		for (int i = 0; i < VALID_NUMBER_LENGTH; i++) {
+			boolean isStrike = problemNumbers[i].equals(answerNumbers[i]);
+			increaseCountWhenBall(Arrays.asList(problemNumbers), answerNumbers[i], isStrike);
+		}
+	}
+
+	void increaseCountWhenBall(List<String> problemNumbers, String answerNumber, boolean isStrike) {
+		if (!isStrike && problemNumbers.contains(answerNumber)) {
+			ballCount++;
+		}
+	}
+
 	public int getStrikeCount() {
 		return strikeCount;
+	}
+
+	public int getBallCount() {
+		return ballCount;
 	}
 }
