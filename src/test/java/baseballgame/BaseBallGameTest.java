@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -56,5 +57,20 @@ public class BaseBallGameTest {
 		}
 
 		assertThat(baseBallGame.getStrikeCount()).isEqualTo(result);
+	}
+
+	@DisplayName("볼인 경우, 볼 개수 증가")
+	@ParameterizedTest
+	@CsvSource(value = {"234:0", "612:0","621:1", "392:1", "169:2", "192:2", "196:3"}, delimiter = ':')
+	void increaseCountWhenBall(String stringNumber, int result) {
+		String[] problemNumbers = {"6", "1", "9"};
+		String[] answerNumbers = stringNumber.split("");
+
+		for (int i = 0; i < problemNumbers.length; i++) {
+			boolean isStrike = problemNumbers[i].equals(answerNumbers[i]);
+			baseBallGame.increaseCountWhenBall(Arrays.asList(problemNumbers), answerNumbers[i], isStrike);
+		}
+
+		assertThat(baseBallGame.getBallCount()).isEqualTo(result);
 	}
 }
