@@ -89,4 +89,13 @@ public class BaseBallGameTest {
 
 		assertThat(baseBallGame.isCorrectAnswer()).isEqualTo(result);
 	}
+
+	@DisplayName("게임 재시작 또는 종료 상태 유효성 체크")
+	@ParameterizedTest
+	@CsvSource(value = {"'':false", "abc:false", "a12!@#:false", "0:false", "1:true", "2:true"}, delimiter = ':')
+	void validateRestartOrEndStatus(String restartOrEndStatus, boolean result) {
+		boolean validate = baseBallGame.validateRestartOrEndStatus(restartOrEndStatus);
+
+		assertThat(validate).isEqualTo(result);
+	}
 }
