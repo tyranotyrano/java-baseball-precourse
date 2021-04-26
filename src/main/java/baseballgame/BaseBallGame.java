@@ -8,6 +8,7 @@ public class BaseBallGame {
 	private String[] answerNumbers;
 	private int strikeCount = 0;
 	private int ballCount = 0;
+	private boolean isPlaying = false;
 
 	public void createProblemNumbers() {
 		Set<String> numberSet = createNumberSet();
@@ -17,6 +18,8 @@ public class BaseBallGame {
 		if (!validateStringNumbers(problemNumbers)) {
 			throw new IllegalStateException("문제 생성에 실패하였습니다. 문제 생성 로직을 확인해주세요.");
 		}
+
+		isPlaying = true;
 	}
 
 	private Set<String> createNumberSet() {
@@ -121,11 +124,41 @@ public class BaseBallGame {
 	public void confirmCorrectAnswer() {
 		if (isCorrectAnswer()) {
 			System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+			restartOrEndGame();
 		}
 	}
 
 	boolean isCorrectAnswer() {
 		return strikeCount == 3 && ballCount == 0;
+	}
+
+	private void restartOrEndGame() {
+		String restartOrEndGameStatus = receiveRestartOrEndGameStatus();
+		isPlaying = restartOrEndGameStatus.equals("1");
+
+		if (isPlaying) {
+			createProblemNumbers();
+		}
+	}
+
+	private String receiveRestartOrEndGameStatus() {
+		Scanner scanner = new Scanner(System.in);
+		String restartOrEndStatus;
+
+		do {
+			System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+			restartOrEndStatus = scanner.next();
+		} while (!validateRestartOrEndStatus(restartOrEndStatus));
+
+		return restartOrEndStatus;
+	}
+
+	boolean validateRestartOrEndStatus(String restartOrEndStatus) {
+		return restartOrEndStatus.equals("1") || restartOrEndStatus.equals("2");
+	}
+
+	public boolean isPlaying() {
+		return isPlaying;
 	}
 
 	public int getStrikeCount() {

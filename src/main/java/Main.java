@@ -5,12 +5,11 @@ public class Main {
 		BaseBallGame baseBallGame = new BaseBallGame();
 		baseBallGame.createProblemNumbers();
 
-		baseBallGame.receiveAnswerNumbers();
-
-		baseBallGame.countStrikesAndBalls();
-
-		baseBallGame.printCountResults();
-
-		baseBallGame.confirmCorrectAnswer();
+		while (baseBallGame.isPlaying()) {
+			baseBallGame.receiveAnswerNumbers();
+			baseBallGame.countStrikesAndBalls();
+			baseBallGame.printCountResults();
+			baseBallGame.confirmCorrectAnswer();
+		}
 	}
 }
