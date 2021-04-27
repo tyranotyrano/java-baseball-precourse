@@ -27,7 +27,6 @@ public class BaseBallGame {
 		}
 
 		isPlaying = true;
-		System.out.println(Arrays.asList(problemNumbers));
 	}
 
 	private Set<String> createNumberSet() {
