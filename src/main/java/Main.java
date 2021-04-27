@@ -1,8 +1,9 @@
 import baseballgame.BaseBallGame;
+import baseballgame.Validator;
 
 public class Main {
 	public static void main(String[] args) {
-		BaseBallGame baseBallGame = new BaseBallGame();
+		BaseBallGame baseBallGame = new BaseBallGame(new Validator());
 		baseBallGame.createProblemNumbers();
 
 		while (baseBallGame.isPlaying()) {
