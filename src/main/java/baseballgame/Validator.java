@@ -1,7 +1,7 @@
 package baseballgame;
 
-import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Validator {
@@ -11,13 +11,13 @@ public class Validator {
 	private final String RESTART_GAME_STATUS = "1";
 	private final String END_GAME_STATUS = "2";
 
-	boolean validateStringNumbers(String[] stringNumbers) {
-		if (stringNumbers == null || stringNumbers.length != VALID_NUMBER_LENGTH) {
+	boolean validateStringNumbers(List<String> stringNumbers) {
+		if (stringNumbers == null || stringNumbers.size() != VALID_NUMBER_LENGTH) {
 			return false;
 		}
 
 		String join = String.join("", stringNumbers);
-		Set<String> set = new HashSet<>(Arrays.asList(stringNumbers));
+		Set<String> set = new HashSet<>(stringNumbers);
 
 		return join.matches(NUMBER_FROM_1_to_9_REG_EXP) && set.size() == VALID_NUMBER_LENGTH;
 	}

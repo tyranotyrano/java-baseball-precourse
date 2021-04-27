@@ -1,14 +1,19 @@
 package baseballgame;
 
-import java.util.*;
+import static baseballgame.Validator.*;
 
-import static baseballgame.Validator.VALID_NUMBER_LENGTH;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.Set;
 
 public class BaseBallGame {
 	private final Validator validator;
 
-	private String[] problemNumbers;
-	private String[] answerNumbers;
+	private List<String> problemNumbers;
+	private List<String> answerNumbers;
 	private int strikeCount = 0;
 	private int ballCount = 0;
 	private boolean isPlaying = false;
@@ -19,8 +24,7 @@ public class BaseBallGame {
 
 	public void createProblemNumbers() {
 		Set<String> numberSet = createNumberSet();
-		problemNumbers = String.join("", numberSet)
-							   .split("");
+		problemNumbers = Arrays.asList(String.join("", numberSet).split(""));
 
 		if (!validator.validateStringNumbers(problemNumbers)) {
 			throw new IllegalStateException("문제 생성에 실패하였습니다. 문제 생성 로직을 확인해주세요.");
@@ -50,7 +54,7 @@ public class BaseBallGame {
 
 		do {
 			System.out.print("숫자를 입력해주세요(1~9 중 서로 다른 3자리수) : ");
-			answerNumbers = scanner.next().split("");
+			answerNumbers = Arrays.asList(scanner.next().split(""));
 		} while (!validator.validateStringNumbers(answerNumbers));
 	}
 
@@ -71,7 +75,7 @@ public class BaseBallGame {
 
 	private void countStrikes() {
 		for (int i = 0; i < VALID_NUMBER_LENGTH; i++) {
-			increaseCountWhenStrike(problemNumbers[i], answerNumbers[i]);
+			increaseCountWhenStrike(problemNumbers.get(i), answerNumbers.get(i));
 		}
 	}
 
@@ -83,8 +87,8 @@ public class BaseBallGame {
 
 	private void countBalls() {
 		for (int i = 0; i < VALID_NUMBER_LENGTH; i++) {
-			boolean isStrike = problemNumbers[i].equals(answerNumbers[i]);
-			increaseCountWhenBall(Arrays.asList(problemNumbers), answerNumbers[i], isStrike);
+			boolean isStrike = problemNumbers.get(i).equals(answerNumbers.get(i));
+			increaseCountWhenBall(problemNumbers, answerNumbers.get(i), isStrike);
 		}
 	}
 

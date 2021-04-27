@@ -2,6 +2,9 @@ package baseballgame;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,7 +24,7 @@ class ValidatorTest {
 	@CsvSource(value = {"'':false", "012:false", "a23:false", "122:false", "1123:false", "3456:false",
 		"123:true"}, delimiter = ':')
 	void validateStringNumbers(String value, boolean result) {
-		String[] stringNumbers = value.split("");
+		List<String> stringNumbers = Arrays.asList(value.split(""));
 		boolean validateResult = validator.validateStringNumbers(stringNumbers);
 
 		assertThat(validateResult).isEqualTo(result);
