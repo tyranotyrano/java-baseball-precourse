@@ -1,4 +1,4 @@
-package baseball.domain;
+package baseball.domain.ballnumber;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,6 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import baseball.constant.ErrorMessage;
+import baseball.domain.ballnumber.BallNumber;
 
 class BallNumberTest {
 

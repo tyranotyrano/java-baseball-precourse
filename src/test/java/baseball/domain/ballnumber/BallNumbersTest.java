@@ -1,4 +1,4 @@
-package baseball.domain;
+package baseball.domain.ballnumber;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import baseball.constant.BallNumberConstant;
+import baseball.domain.ballnumber.BallNumbers;
 import baseball.generator.BallNumberGenerator;
 
 class BallNumbersTest {

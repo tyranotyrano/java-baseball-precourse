@@ -1,6 +1,4 @@
-package baseball.domain;
-
-import baseball.constant.BallNumberConstant;
+package baseball.domain.hint;
 
 public class Hint {
 	private StrikeHint strikeHint;

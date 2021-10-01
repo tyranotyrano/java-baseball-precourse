@@ -1,6 +1,8 @@
-package baseball.domain;
+package baseball.domain.hint;
 
 import baseball.constant.BallNumberConstant;
+import baseball.domain.ballnumber.BallNumber;
+import baseball.domain.ballnumber.BallNumbers;
 
 public class StrikeHint {
 	private static final int STRIKE_COUNT_MIN = 0;

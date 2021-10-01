@@ -1,6 +1,8 @@
-package baseball.domain;
+package baseball.domain.hint;
 
 import baseball.constant.BallNumberConstant;
+import baseball.domain.ballnumber.BallNumber;
+import baseball.domain.ballnumber.BallNumbers;
 
 public class BallHint {
 	private static final int BALL_COUNT_MIN = 0;

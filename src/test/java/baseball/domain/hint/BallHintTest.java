@@ -1,4 +1,4 @@
-package baseball.domain;
+package baseball.domain.hint;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,6 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import baseball.domain.ballnumber.BallNumbers;
+import baseball.domain.hint.BallHint;
 import baseball.generator.TestPlayerNumberGenerator;
 import baseball.generator.TestProblemNumberGenerator;
 
