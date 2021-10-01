@@ -3,11 +3,9 @@ package baseball.domain;
 import java.util.Objects;
 
 import baseball.constant.BallNumberConstant;
+import baseball.constant.ErrorMessage;
 
 public class BallNumber {
-	private static final String INVALID_BALL_NUMBER = String.format("%d 부터 %d 까지 숫자만 입력 가능합니다.",
-																	BallNumberConstant.MIN,
-																	BallNumberConstant.MAX);
 	private final int number;
 
 	private BallNumber(int number) {
@@ -25,7 +23,7 @@ public class BallNumber {
 
 	private static void validateBallNumber(int number) {
 		if (number < BallNumberConstant.MIN || BallNumberConstant.MAX < number) {
-			throw new IllegalArgumentException(INVALID_BALL_NUMBER);
+			throw new IllegalArgumentException(ErrorMessage.INVALID_BALL_NUMBER);
 		}
 	}
 
