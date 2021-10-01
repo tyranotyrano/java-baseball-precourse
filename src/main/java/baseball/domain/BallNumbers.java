@@ -24,6 +24,10 @@ public class BallNumbers {
 		return new BallNumbers(ballNumbers);
 	}
 
+	public int size() {
+		return this.ballNumbers.size();
+	}
+
 	public BallNumber getBallNumber(int index) {
 		return this.ballNumbers.get(index);
 	}
