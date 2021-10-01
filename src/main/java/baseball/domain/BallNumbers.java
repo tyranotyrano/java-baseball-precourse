@@ -24,6 +24,10 @@ public class BallNumbers {
 		return new BallNumbers(ballNumbers);
 	}
 
+	public boolean contains(BallNumber ballNumber) {
+		return this.ballNumbers.contains(ballNumber);
+	}
+
 	public int size() {
 		return this.ballNumbers.size();
 	}
