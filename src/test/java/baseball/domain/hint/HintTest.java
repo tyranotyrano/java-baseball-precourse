@@ -24,7 +24,7 @@ class HintTest {
 			new TestPlayerNumberGenerator(Arrays.asList(firstNumber, secondNumber, thirdNumber)));
 		// when
 		Hint hint = Hint.create();
-		hint.countTotalHint(problemBallNumbers, playerBallNumbers);
+		hint.makeTotalHint(problemBallNumbers, playerBallNumbers);
 		// then
 		assertEquals(hint.getStrikeCount(), strikeCount);
 		assertEquals(hint.getBallCount(), ballCount);
@@ -40,7 +40,7 @@ class HintTest {
 			new TestPlayerNumberGenerator(Arrays.asList(firstNumber, secondNumber, thirdNumber)));
 		// when
 		Hint hint = Hint.create();
-		hint.countTotalHint(problemBallNumbers, playerBallNumbers);
+		hint.makeTotalHint(problemBallNumbers, playerBallNumbers);
 		// then
 		assertEquals(hint.isAllStrike(), isAllStrike);
 	}
@@ -55,7 +55,7 @@ class HintTest {
 			new TestPlayerNumberGenerator(Arrays.asList(firstNumber, secondNumber, thirdNumber)));
 		// when
 		Hint hint = Hint.create();
-		hint.countTotalHint(problemBallNumbers, playerBallNumbers);
+		hint.makeTotalHint(problemBallNumbers, playerBallNumbers);
 		// then
 		assertEquals(hint.isNothing(), isNothing);
 	}

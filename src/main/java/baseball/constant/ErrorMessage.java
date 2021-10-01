@@ -5,4 +5,5 @@ public class ErrorMessage {
 																   BallNumberConstant.MIN,
 																   BallNumberConstant.MAX);
 	public static final String INVALID_BALL_NUMBER_SIZE = "ballNumbers 의 크기는 3개 이어야 합니다.";
+	public static final String INVALID_HINT_TOTAL_COUNT = "Strike 와 Ball 의 총 개수는 0 ~ 3개 이어야 합니다.";
 }
