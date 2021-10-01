@@ -16,12 +16,22 @@ public class BallNumbers {
 	}
 
 	public static BallNumbers createBy(NumberGenerator numberGenerator) {
+		List<BallNumber> ballNumbers = buildBallNumbersToList(numberGenerator.generate());
+		return new BallNumbers(ballNumbers);
+	}
+
+	public static BallNumbers of(List<Integer> numbers) {
+		List<BallNumber> ballNumbers = buildBallNumbersToList(numbers);
+		return new BallNumbers(ballNumbers);
+	}
+
+	private static List<BallNumber> buildBallNumbersToList(List<Integer> numbers) {
 		List<BallNumber> ballNumbers = new ArrayList<>();
-		for (Integer number : numberGenerator.generate()) {
+		for (Integer number : numbers) {
 			ballNumbers.add(BallNumber.of(number));
 		}
 
-		return new BallNumbers(ballNumbers);
+		return ballNumbers;
 	}
 
 	public boolean contains(BallNumber ballNumber) {

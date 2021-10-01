@@ -32,6 +32,6 @@ class BallNumberTest {
 		// then
 		assertThatIllegalArgumentException()
 			.isThrownBy(() -> BallNumber.of(number))
-			.withMessageMatching(ErrorMessage.INVALID_BALL_NUMBER);
+			.withMessageContaining(ErrorMessage.INVALID_BALL_NUMBER);
 	}
 }
