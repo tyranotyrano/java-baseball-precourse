@@ -18,6 +18,10 @@ public class BallHint {
 		return new BallHint();
 	}
 
+	public void init() {
+		this.ballCount = BALL_COUNT_MIN;
+	}
+
 	public void countBall(BallNumbers problemNumbers, BallNumbers playerNumbers) {
 		for (int i = 0; i < BallNumberConstant.VALID_SIZE; i++) {
 			BallNumber problemNumber = problemNumbers.getBallNumber(i);

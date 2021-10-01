@@ -18,6 +18,10 @@ public class StrikeHint {
 		return new StrikeHint();
 	}
 
+	public void init() {
+		this.strikeCount = STRIKE_COUNT_MIN;
+	}
+
 	public void countStrike(BallNumbers problemNumbers, BallNumbers playerNumbers) {
 		for (int i = 0; i < BallNumberConstant.VALID_SIZE; i++) {
 			BallNumber problemNumber = problemNumbers.getBallNumber(i);

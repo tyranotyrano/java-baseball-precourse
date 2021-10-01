@@ -20,6 +20,11 @@ public class Hint {
 		return new Hint();
 	}
 
+	public void init() {
+		this.strikeHint.init();
+		this.ballHint.init();
+	}
+
 	public boolean isAllStrike() {
 		return this.strikeHint.isAllStrike() && !this.ballHint.hasBall();
 	}
@@ -32,6 +37,14 @@ public class Hint {
 
 	public boolean isNothing() {
 		return !this.strikeHint.hasStrike() && !this.ballHint.hasBall();
+	}
+
+	public boolean hasStrike() {
+		return this.strikeHint.hasStrike();
+	}
+
+	public boolean hasBall() {
+		return this.ballHint.hasBall();
 	}
 
 	public int getStrikeCount() {

@@ -19,10 +19,31 @@ public class Computer {
 	}
 
 	public void makeTotalHint(BallNumbers playerBallNumbers) {
+		this.hint.init();
 		this.hint.makeTotalHint(this.problemBallNumbers, playerBallNumbers);
 	}
 
 	public boolean isAllStrike() {
 		return this.hint.isAllStrike();
+	}
+
+	public boolean isNothing() {
+		return this.hint.isNothing();
+	}
+
+	public boolean hasStrike() {
+		return this.hint.hasStrike();
+	}
+
+	public boolean hasBall() {
+		return this.hint.hasBall();
+	}
+
+	public int getStrikeCount() {
+		return this.hint.getStrikeCount();
+	}
+
+	public int getBallCount() {
+		return this.hint.getBallCount();
 	}
 }
