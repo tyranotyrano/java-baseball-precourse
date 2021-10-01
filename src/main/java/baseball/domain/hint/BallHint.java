@@ -28,6 +28,10 @@ public class BallHint {
 		}
 	}
 
+	public boolean hasBall() {
+		return this.ballCount > 0;
+	}
+
 	public int getBallCount() {
 		return this.ballCount;
 	}

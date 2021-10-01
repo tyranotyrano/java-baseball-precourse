@@ -28,6 +28,14 @@ public class StrikeHint {
 		}
 	}
 
+	public boolean isAllStrike() {
+		return this.strikeCount == STRIKE_COUNT_MAX;
+	}
+
+	public boolean hasStrike() {
+		return this.strikeCount > 0;
+	}
+
 	public int getStrikeCount() {
 		return this.strikeCount;
 	}
