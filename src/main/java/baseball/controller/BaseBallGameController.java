@@ -17,10 +17,23 @@ public class BaseBallGameController {
 
 	public void play() {
 		Computer computer = Computer.createBy(new BallNumberGenerator());
+		while (computer.isPlay()) {
+			runGame(computer);
+			this.printView.printGameEnd();
+			restartOrExitGame(computer);
+		}
+	}
+
+	private void runGame(Computer computer) {
 		while (!computer.isAllStrike()) {
 			BallNumbers playerBallNumbers = BallNumbers.of(this.inputView.inputBallNumbers());
 			computer.makeTotalHint(playerBallNumbers);
 			this.printView.printHint(computer);
 		}
+	}
+
+	private void restartOrExitGame(Computer computer) {
+		this.printView.printRestartOrExit();
+		computer.restartOrExitGame(this.inputView.inputGameState());
 	}
 }

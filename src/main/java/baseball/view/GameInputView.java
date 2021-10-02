@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 import baseball.constant.BallNumberConstant;
+import baseball.domain.GameStateType;
 import nextstep.utils.Console;
 
 public class GameInputView {
@@ -19,7 +20,7 @@ public class GameInputView {
 		System.out.print(NUMBER_INPUT_GUIDE_MESSAGE);
 		String number = Console.readLine();
 
-		if (isValidInputNumbers(number)) {
+		if (isValidInputBallNumbers(number)) {
 			return convertToIntegers(number);
 		}
 
@@ -27,7 +28,17 @@ public class GameInputView {
 		return inputBallNumbers();
 	}
 
-	private boolean isValidInputNumbers(String numbers) {
+	public GameStateType inputGameState() {
+		String gameState = Console.readLine();
+		if (isValidGameState(gameState)) {
+			return GameStateType.of(gameState);
+		}
+
+		System.out.println(INVALID_GAME_STATE);
+		return inputGameState();
+	}
+
+	private boolean isValidInputBallNumbers(String numbers) {
 		if (numbers == null || numbers.length() != BallNumberConstant.VALID_SIZE) {
 			return false;
 		}
@@ -44,5 +55,12 @@ public class GameInputView {
 		}
 
 		return numbers;
+	}
+
+	private boolean isValidGameState(String gameState) {
+		if (gameState == null || gameState.isEmpty()) {
+			return false;
+		}
+		return GameStateType.isValidType(gameState);
 	}
 }
