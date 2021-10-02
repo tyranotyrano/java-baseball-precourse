@@ -1,20 +1,18 @@
 package baseball.controller;
 
-import java.util.List;
-
 import baseball.domain.Computer;
 import baseball.domain.ballnumber.BallNumbers;
 import baseball.generator.BallNumberGenerator;
-import baseball.view.BallNumberInputView;
-import baseball.view.HintView;
+import baseball.view.GameInputView;
+import baseball.view.GamePrintView;
 
 public class BaseBallGameController {
-	private final BallNumberInputView inputView;
-	private final HintView hintView;
+	private final GameInputView inputView;
+	private final GamePrintView printView;
 
 	public BaseBallGameController() {
-		this.inputView = new BallNumberInputView();
-		this.hintView = new HintView();
+		this.inputView = new GameInputView();
+		this.printView = new GamePrintView();
 	}
 
 	public void play() {
@@ -22,7 +20,7 @@ public class BaseBallGameController {
 		while (!computer.isAllStrike()) {
 			BallNumbers playerBallNumbers = BallNumbers.of(this.inputView.inputBallNumbers());
 			computer.makeTotalHint(playerBallNumbers);
-			this.hintView.printHint(computer);
+			this.printView.printHint(computer);
 		}
 	}
 }

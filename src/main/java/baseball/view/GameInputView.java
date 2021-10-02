@@ -11,7 +11,7 @@ import java.util.Set;
 import baseball.constant.BallNumberConstant;
 import nextstep.utils.Console;
 
-public class BallNumberInputView {
+public class GameInputView {
 	private static final String NUMBER_INPUT_GUIDE_MESSAGE = "숫자를 입력해주세요 : ";
 	private static final String NUMBER_FROM_1_to_9_REG_EXP = "^[1-9]+$";
 

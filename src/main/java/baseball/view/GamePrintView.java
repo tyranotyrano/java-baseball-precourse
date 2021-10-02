@@ -2,7 +2,7 @@ package baseball.view;
 
 import baseball.domain.Computer;
 
-public class HintView {
+public class GamePrintView {
 	private static final String HINT_NOTHING_MESSAGE = "낫싱";
 	private static final String HINT_STRIKE_MESSAGE = "%s 스트라이크 ";
 	private static final String HINT_BALL_MESSAGE = "%s 볼";
